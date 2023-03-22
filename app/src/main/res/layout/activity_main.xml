@@ -6,5 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/centralview"
+        android:layout_width="300dp"
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/lowframe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/topframe"
+        android:background="#FF9900"/>
+
+
+    <FrameLayout
+        android:id="@+id/topframe"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintStart_toStartOf ="parent"
+        android:background="#6600CC"/>
+
+    <FrameLayout
+        android:id="@+id/lowframe"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#CC0099"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
