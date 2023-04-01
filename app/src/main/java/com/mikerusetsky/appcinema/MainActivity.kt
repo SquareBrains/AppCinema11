@@ -3,6 +3,8 @@ package com.mikerusetsky.appcinema
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import android.widget.Toolbar
+import com.google.android.material.navigation.NavigationBarMenu
 import com.mikerusetsky.appcinema.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,25 +17,39 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initButtons()
+
+
+        initNavigation()
     }
 
+        private fun initNavigation() {
+            Toolbar.setOnMenuItemClickListener {
+                when (it.itemId) {
+                    R.id.settings -> {
+                        Toast.makeText(this, "Настройки", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    else -> false
+                }
+            }
 
-    private fun initButtons() {
+            Navigation_Bottom.setOnNavigationItemSelectedListener {
 
-     binding.menu_button.setOnClickListener {
-            Toast.makeText(this, "Меню", Toast.LENGTH_SHORT).show()
-        }
-        binding.favourite_button. {
-            Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT).show()
-        }
-        binding.watch_later_button.setOnClickListener {
-            Toast.makeText(this, "Посмотреть позже", Toast.LENGTH_SHORT).show()
-        }
-        binding.collections_button.setOnClickListener {
-            Toast.makeText(this, "Подборки", Toast.LENGTH_SHORT).show()
-        }
-        binding.settings_button.setOnClickListener {
-            Toast.makeText(this, "Настройки", Toast.LENGTH_SHORT).show()
+                when (it.itemId) {
+                    R.id.favorites -> {
+                        Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.watch_later -> {
+                        Toast.makeText(this, "Посмотреть позже", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.collections -> {
+                        Toast.makeText(this, "Подборки", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    else -> false
+                }
+            }
         }
     }
