@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">AppCinema</string>
-    <string name="app_name">AppFilms</string>
     <string name="site">Постеры предоставлены www.movieposters.com</string>
     <string name="menu">Меню</string>
     <string name="fav">Избранное</string>
