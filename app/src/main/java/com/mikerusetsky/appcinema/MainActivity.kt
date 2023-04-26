@@ -13,33 +13,57 @@ import com.mikerusetsky.appcinema.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var filmsAdapter: FilmListRecyclerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-        //находим наш RV
-        binding?.mainRecycler.apply {
+        initNavigation()
 
-            filmsAdapter =
-                FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
-                    override fun click(film: Film) {
-                        val bundle = Bundle()
-                        bundle.putParcelable("film", film)
-                        val intent = Intent(this@MainActivity, DetailsActivity::class.java)
-                        intent.putExtras(bundle)
-                        startActivity(intent)
-                    }
-                })
+        //Зупускаем фрагмент при старте
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragment_placeholder, HomeFragment())
+            .addToBackStack(null)
+            .commit()
+    }
 
-            this!!.adapter = filmsAdapter
-            this!!.layoutManager = LinearLayoutManager(this@MainActivity)
-            val decorator = TopSpacingItemDecoration(8)
-            this!!.addItemDecoration(decorator)
+        fun launchDetailsFragment(film: Film) {
+            //Создаем "посылку"
+            val bundle = Bundle()
+            //Кладем наш фильм в "посылку"
+            bundle.putParcelable("film", film)
+            //Кладем фрагмент с деталями в перменную
+            val fragment = DetailsFragment()
+            //Прикрепляем нашу "посылку" к фрагменту
+            fragment.arguments = bundle
 
-            filmsAdapter.addItems(filmsDataBase)
+            //Запускаем фрагмент
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_placeholder, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
 
+    private fun initNavigation() {
+        binding.navigationBottom.setOnNavigationItemSelectedListener {
+
+            when (it.itemId) {
+                R.id.favorites -> {
+                    Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.watch_later -> {
+                    Toast.makeText(this, "Посмотреть позже", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.collections -> {
+                    Toast.makeText(this, "Подборки", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
         }
     }
 }
