@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         initNavigation()
 
+
         //Зупускаем фрагмент при старте
         supportFragmentManager
             .beginTransaction()
