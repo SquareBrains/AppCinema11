@@ -67,7 +67,7 @@ class HomeFragment : Fragment() {
         filmsAdapter.addItems(filmsDataBase)
     }
 
-
+    //Инициализируем наш адаптер в конструктор передаем анонимно инициализированный интерфейс,
         private fun initRecycler() {
         binding.mainRecycler.apply {
             filmsAdapter =
@@ -77,11 +77,16 @@ class HomeFragment : Fragment() {
                     }
 
                 })
+            //Присваиваем адаптер
             adapter = filmsAdapter
+            //Присвоим layoutmanager
             layoutManager = LinearLayoutManager(requireContext())
+            //Применяем декоратор для отступов
             val decorator = TopSpacingItemDecoration(7)
             addItemDecoration(decorator)
         }
+
+        //Кладем нашу БД в RV
         filmsAdapter.addItems(filmsDataBase)
     }
 
