@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mikerusetsky.appcinema.databinding.FragmentCollectionsBinding
 import com.mikerusetsky.appcinema.databinding.FragmentFavoritesBinding
 import com.mikerusetsky.appcinema.databinding.FragmentHomeBinding
 
@@ -14,6 +15,14 @@ class FavoritesFragment : Fragment() {
 
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding5 : FragmentFavoritesBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding5 = FragmentFavoritesBinding.inflate(inflater, container, false)
+        return binding5.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
