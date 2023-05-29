@@ -13,14 +13,16 @@ import com.mikerusetsky.appcinema.databinding.FragmentHomeBinding
 class FavoritesFragment : Fragment() {
 
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
-    private lateinit var binding: FragmentFavoritesBinding
+    private lateinit var binding5 : FragmentFavoritesBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Получаем список при транзакции фрагмента
         val favoritesList: List<Film> = emptyList()
 
-        binding.favoritesRecycler.apply {
+        AnimationHelper.performFragmentCircularRevealAnimation(binding5.favoritesFragmentRoot, requireActivity(), 1)
+
+        binding5.favoritesRecycler.apply {
             filmsAdapter =
                 FilmListRecyclerAdapter(object : FilmListRecyclerAdapter.OnItemClickListener {
                     override fun click(film: Film) {
