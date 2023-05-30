@@ -14,11 +14,11 @@ import com.mikerusetsky.appcinema.databinding.FragmentWatchlaterBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding6: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding6 = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding6!!.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
 
         initNavigation()
 
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initNavigation() {
-        binding6.navigationBottom.setOnNavigationItemSelectedListener {
+        binding.navigationBottom.setOnNavigationItemSelectedListener {
 
             when (it.itemId) {
                 R.id.home -> {
