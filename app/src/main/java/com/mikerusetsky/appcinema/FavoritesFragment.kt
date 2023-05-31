@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mikerusetsky.appcinema.databinding.FragmentCollectionsBinding
 import com.mikerusetsky.appcinema.databinding.FragmentFavoritesBinding
-import com.mikerusetsky.appcinema.databinding.FragmentHomeBinding
+
 
 
 class FavoritesFragment : Fragment() {

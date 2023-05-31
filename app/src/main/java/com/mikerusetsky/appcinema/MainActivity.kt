@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.core.os.bundleOf
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationBarMenu
@@ -19,8 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-
         initNavigation()
+        installSplashScreen()
+
 
 
         //Зупускаем фрагмент при старте
