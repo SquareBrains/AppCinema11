@@ -10,31 +10,40 @@ import com.bumptech.glide.Glide
 import com.mikerusetsky.appcinema.databinding.FilmItemBinding
 
 //В конструктор класс передается layout, который мы создали(film_item.xml)
-class FilmViewHolder (itemView: View) : ViewHolder(itemView) {
+class FilmViewHolder (binding: FilmItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    //Привязываем View из layout к переменным
-        val filmBinding = FilmItemBinding.bind(itemView)
+    //Привязываем View к переменным
+    private val title = binding.title
+    private val poster = binding.poster
+    private val description = binding.description
+    //Вот здесь мы находим в верстке наш прогресс бар для рейтинга
+    private val ratingDonut = binding.ratingDonut
+
+
 
 
     //В этом методе кладем данные из Film в наши View
         fun bind(film: Film) {
 
         //Устанавливаем заголовок
-            filmBinding.title.text = film.title
+        title.text = film.title
 
         //Устанавливаем постер
-            //filmBinding.poster.setImageResource(film.poster)
+
 
         //Указываем контейнер, в котором будет "жить" наша картинка
-        Glide.with(itemView)
-            //Загружаем сам ресурс
-            .load(film.poster)
-            //Центруем изображение
-            .centerCrop()
+        Glide.with(itemView).
             //Указываем ImageView, куда будем загружать изображение
-            .into(filmBinding.poster)
+        load(film.poster).
+            //Центруем изображение
+            centerCrop().
+            //Указываем ImageView, куда будем загружать изображение
+        into(poster)
 
         //Устанавливаем описание
-            filmBinding.description.text = film.description
+        description.text = film.description
+
+        //Устанавливаем рэйтинг
+        ratingDonut.setProgress((film.rating * 10).toInt())
         }
     }

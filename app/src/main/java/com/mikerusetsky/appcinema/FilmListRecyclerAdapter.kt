@@ -2,7 +2,9 @@ package com.mikerusetsky.appcinema
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.mikerusetsky.appcinema.databinding.FilmItemBinding
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса Activity
 class FilmListRecyclerAdapter (private val clickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -15,8 +17,10 @@ class FilmListRecyclerAdapter (private val clickListener: OnItemClickListener) :
 
 
     //В этом методе мы привязываем наш ViewHolder и передаем туда "надутую" верстку нашего фильма
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return FilmViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.film_item, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
+        return FilmViewHolder(FilmItemBinding.inflate (
+                LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
     //В этом методе будет привязка полей из объекта Film к View из film_item.xml
@@ -35,7 +39,7 @@ class FilmListRecyclerAdapter (private val clickListener: OnItemClickListener) :
             //например, картинку) и вызываем метод нашего листенера, который мы получаем из
             //конструктора адаптера
 
-            holder.filmBinding.itemContainer.setOnClickListener {
+            holder.itemView.findViewById<CardView>(R.id.item_container).setOnClickListener {
                 clickListener.click(items[position])
             }
         }
