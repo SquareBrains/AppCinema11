@@ -1,4 +1,4 @@
-package com.mikerusetsky.appcinema
+package com.mikerusetsky.appcinema.view.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.mikerusetsky.appcinema.R
 import com.mikerusetsky.appcinema.databinding.FragmentDetailsBinding
+import com.mikerusetsky.appcinema.domain.Film
 
 class DetailsFragment : Fragment() {
 
@@ -61,6 +63,7 @@ class DetailsFragment : Fragment() {
 
         binding.detailsFabFavorites.setImageResource(
             if (film.isInFavorites) R.drawable.baseline_favorite_24
-            else R.drawable.baseline_favorite_border_24)
+            else R.drawable.baseline_favorite_border_24
+        )
     }
 }

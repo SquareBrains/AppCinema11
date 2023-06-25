@@ -1,17 +1,13 @@
-package com.mikerusetsky.appcinema
+package com.mikerusetsky.appcinema.view
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import android.widget.Toolbar
-import androidx.core.os.bundleOf
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.navigation.NavigationBarMenu
+import com.mikerusetsky.appcinema.R
 import com.mikerusetsky.appcinema.databinding.ActivityMainBinding
-import com.mikerusetsky.appcinema.databinding.FragmentWatchlaterBinding
+import com.mikerusetsky.appcinema.domain.Film
+import com.mikerusetsky.appcinema.view.fragments.*
 
 class MainActivity : AppCompatActivity() {
 

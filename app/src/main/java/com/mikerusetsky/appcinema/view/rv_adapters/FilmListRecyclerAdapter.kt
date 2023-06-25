@@ -1,10 +1,13 @@
-package com.mikerusetsky.appcinema
+package com.mikerusetsky.appcinema.view.rv_adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.mikerusetsky.appcinema.R
 import com.mikerusetsky.appcinema.databinding.FilmItemBinding
+import com.mikerusetsky.appcinema.domain.Film
+import com.mikerusetsky.appcinema.view.rv_viewholders.FilmViewHolder
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса Activity
 class FilmListRecyclerAdapter (private val clickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

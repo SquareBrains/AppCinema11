@@ -1,13 +1,10 @@
-package com.mikerusetsky.appcinema
+package com.mikerusetsky.appcinema.view.rv_viewholders
 
 
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.mikerusetsky.appcinema.databinding.FilmItemBinding
+import com.mikerusetsky.appcinema.domain.Film
 
 //В конструктор класс передается layout, который мы создали(film_item.xml)
 class FilmViewHolder (binding: FilmItemBinding) : RecyclerView.ViewHolder(binding.root) {

@@ -1,4 +1,4 @@
-package com.mikerusetsky.appcinema
+package com.mikerusetsky.appcinema.view.customviews
 
 import android.animation.ValueAnimator
 import android.content.Context
@@ -10,7 +10,7 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.AnimationUtils
+import com.mikerusetsky.appcinema.R
 
 class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet:
 AttributeSet? = null) : View(context, attributeSet) {

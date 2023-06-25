@@ -1,4 +1,4 @@
-package com.mikerusetsky.appcinema
+package com.mikerusetsky.appcinema.view.rv_adapters
 
 import android.content.res.Resources
 import android.graphics.Rect

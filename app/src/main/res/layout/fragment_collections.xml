@@ -7,6 +7,6 @@
     android:background="@drawable/collections_screen"
     android:visibility="invisible"
     tools:visibility="visible"
-    tools:context=".CollectionsFragment">
+    tools:context=".view.fragments.CollectionsFragment">
 
 </FrameLayout>

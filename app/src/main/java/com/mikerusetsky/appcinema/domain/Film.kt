@@ -1,4 +1,4 @@
-package com.mikerusetsky.appcinema
+package com.mikerusetsky.appcinema.domain
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

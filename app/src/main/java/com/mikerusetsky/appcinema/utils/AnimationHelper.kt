@@ -1,4 +1,4 @@
-package com.mikerusetsky.appcinema
+package com.mikerusetsky.appcinema.utils
 
 import android.app.Activity
 import android.view.View
