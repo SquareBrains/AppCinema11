@@ -3,6 +3,7 @@ package com.mikerusetsky.appcinema.view.rv_viewholders
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.mikerusetsky.appcinema.ApiConstants
 import com.mikerusetsky.appcinema.databinding.FilmItemBinding
 import com.mikerusetsky.appcinema.domain.Film
 
@@ -31,7 +32,7 @@ class FilmViewHolder (binding: FilmItemBinding) : RecyclerView.ViewHolder(bindin
         //Указываем контейнер, в котором будет "жить" наша картинка
         Glide.with(itemView).
             //Указываем ImageView, куда будем загружать изображение
-        load(film.poster).
+        load(ApiConstants.IMAGES_URL + "w342" + film.poster).
             //Центруем изображение
             centerCrop().
             //Указываем ImageView, куда будем загружать изображение
