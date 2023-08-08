@@ -35,9 +35,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //подпиcка на изменения View Model
+        //подпиcка на изменения списка фильмов
+        //Кладем нашу БД в RV
         viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer<List<Film>> {
             filmsDataBase = it
+            filmsAdapter.addItems(it)
         })
 
         AnimationHelper.performFragmentCircularRevealAnimation(
@@ -79,6 +81,18 @@ class HomeFragment : Fragment() {
         filmsAdapter.addItems(filmsDataBase)
     }
 
+    private fun initPullToRefresh() {
+        //Вешаем слушатель, чтобы вызвался pull to refresh
+        binding.pullToRefresh.setOnRefreshListener {
+            //Чистим адаптер(items нужно будет сделать паблик или создать для этого публичный метод)
+            filmsAdapter.items.clear()
+            //Делаем новый запрос фильмов на сервер
+            viewModel.getFilms()
+            //Убираем крутящееся колечко
+            binding.pullToRefresh.isRefreshing = false
+        }
+    }
+
     //Инициализируем наш адаптер в конструктор передаем анонимно инициализированный интерфейс,
     private fun initRecycler() {
         binding.mainRecycler.apply {
@@ -117,4 +131,5 @@ class HomeFragment : Fragment() {
             //Обновляем RV адаптер
             filmsAdapter.addItems(field)
         }
+
 }
