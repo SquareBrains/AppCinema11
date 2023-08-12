@@ -10,6 +10,7 @@ import com.mikerusetsky.appcinema.di.modules.RemoteModule
 class App : Application() {
     lateinit var dagger: AppComponent
 
+
     override fun onCreate() {
         super.onCreate()
         instance = this
