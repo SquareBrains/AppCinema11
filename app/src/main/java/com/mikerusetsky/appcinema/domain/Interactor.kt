@@ -9,7 +9,6 @@ import com.mikerusetsky.appcinema.data.PreferenceProvider
 import com.mikerusetsky.appcinema.utils.Converter
 import com.mikerusetsky.appcinema.viewmodel.HomeFragmentViewModel
 import okhttp3.Response
-import javax.security.auth.callback.Callback
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {
     //В конструктор мы будем передавать коллбэк из вью модели, чтобы реагировать на то, когда фильмы будут получены
@@ -20,9 +19,14 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
 
         retrofitService.getFilms(getDefaultCategoryFromPreferences(), MyApi.API, "ru-RU",
             page).enqueue (object : retrofit2.Callback <TmdbResultsDto> {
-            override fun onResponse(call: retrofit2.Call <TmdbResultsDto>, response: retrofit2.Response<TmdbResultsDto>) {
-                //При успехе мы вызываем метод передаем onSuccess и в этот коллбэк список фильмов
-                callback.onSuccess(Converter.convertApiListToDtoList(response.body()?.tmdbFilms))
+            override fun onResponse (call: retrofit2.Call<TmdbResultsDto>, response: retrofit2.Response<TmdbResultsDto>) {
+                //При успехе мы вызываем метод, передаем onSuccess и в этот коллбэк список фильмов
+                val list = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
+                //Кладем фильмы в бд
+                list.forEach {
+                    repo.putToDb(film = it)
+                }
+                callback.onSuccess(list)
             }
 
             override fun onFailure(call: retrofit2.Call <TmdbResultsDto>, t: Throwable) {
@@ -37,4 +41,5 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
     }
     //Метод для получения настроек
     fun getDefaultCategoryFromPreferences() = preferences.getDefaultCategory()
+    fun getFilmsFromDB(): List<Film> = repo.getAllFromDB()
 }
