@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.mikerusetsky.appcinema.App
 import com.mikerusetsky.appcinema.domain.Film
 import com.mikerusetsky.appcinema.domain.Interactor
+import java.util.concurrent.Executors
 import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {
@@ -26,7 +27,9 @@ class HomeFragmentViewModel : ViewModel() {
             }
 
             override fun onFailure() {
-                filmsListLiveData.postValue(interactor.getFilmsFromDB())
+                Executors.newSingleThreadExecutor().execute {
+                    filmsListLiveData.postValue(interactor.getFilmsFromDB())
+                }
             }
         })
     }

@@ -24,7 +24,8 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
                 val list = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
                 //Кладем фильмы в бд
                 list.forEach {
-                    repo.putToDb(film = it)
+                    //Кладём фильмы в БД
+                    repo.putToDb(list)
                 }
                 callback.onSuccess(list)
             }
