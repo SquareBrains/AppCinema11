@@ -1,6 +1,7 @@
 package com.mikerusetsky.appcinema.domain
 
 import android.telecom.Call
+import androidx.lifecycle.LiveData
 import com.mikerusetsky.appcinema.MyApi
 import com.mikerusetsky.appcinema.TmdbApi
 import com.mikerusetsky.appcinema.data.Entity.TmdbResultsDto
@@ -27,7 +28,7 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
                     //Кладём фильмы в БД
                     repo.putToDb(list)
                 }
-                callback.onSuccess(list)
+                callback.onSuccess()
             }
 
             override fun onFailure(call: retrofit2.Call <TmdbResultsDto>, t: Throwable) {
@@ -42,5 +43,5 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
     }
     //Метод для получения настроек
     fun getDefaultCategoryFromPreferences() = preferences.getDefaultCategory()
-    fun getFilmsFromDB(): List<Film> = repo.getAllFromDB()
+    fun getFilmsFromDB(): LiveData<List<Film>> = repo.getAllFromDB()
 }

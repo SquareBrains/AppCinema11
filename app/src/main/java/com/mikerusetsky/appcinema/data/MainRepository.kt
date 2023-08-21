@@ -2,6 +2,7 @@ package com.mikerusetsky.appcinema.data
 
 import android.content.ContentValues
 import android.database.Cursor
+import androidx.lifecycle.LiveData
 import com.mikerusetsky.appcinema.R
 import com.mikerusetsky.appcinema.data.dao.FilmDao
 import com.mikerusetsky.appcinema.data.db.DatabaseHelper
@@ -17,7 +18,5 @@ class MainRepository (private val filmDao: FilmDao) {
         }
     }
 
-    fun getAllFromDB(): List<Film> {
-        return filmDao.getCachedFilms()
-    }
+    fun getAllFromDB(): LiveData<List<Film>> = filmDao.getCachedFilms()
 }
