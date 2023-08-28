@@ -116,7 +116,7 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext())
             //Применяем декоратор для отступов
             val decorator = TopSpacingItemDecoration(7)
-            addItemDecoration(decorator)
+            addItemDecoration (decorator)
         }
 
         //Кладем нашу БД в RV
