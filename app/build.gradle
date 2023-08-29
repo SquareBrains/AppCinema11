@@ -85,16 +85,15 @@ dependencies {
     implementation 'com.airbnb.android:lottie:6.1.0'
 
     //Dagger
-    implementation 'com.google.dagger:dagger:2.37'
-    kapt 'com.google.dagger:dagger-compiler:2.37'
+    implementation 'com.google.dagger:dagger:2.47'
+    kapt 'com.google.dagger:dagger-compiler:2.47'
 
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.5.1'
 
     //Room
-    def room_version = "2.2.6"
-    implementation "androidx.room:room-runtime:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-runtime:2.5.2"
+    kapt "androidx.room:room-compiler:2.5.2"
 
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'

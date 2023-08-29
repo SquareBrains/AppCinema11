@@ -18,7 +18,6 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.mikerusetsky.appcinema.ApiConstants
-import com.mikerusetsky.appcinema.Manifest
 import com.mikerusetsky.appcinema.R
 import com.mikerusetsky.appcinema.databinding.FragmentDetailsBinding
 import com.mikerusetsky.appcinema.domain.Film
