@@ -139,17 +139,14 @@ class DetailsFragment : Fragment() {
 
     //Узнаем, было ли получено разрешение ранее
     private fun checkPermission(): Boolean {
-        val result = ContextCompat.checkSelfPermission(
-            requireContext(), android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        val result = ContextCompat.checkSelfPermission(requireContext(),
+            android.Manifest.permission.READ_MEDIA_IMAGES)
         return result == PackageManager.PERMISSION_GRANTED
     }
-    //Запрашиваем разрешение
+
     private fun requestPermission() {
-        ActivityCompat.requestPermissions(
-            requireActivity(),
-            arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
-            1
-        )
+        ActivityCompat.requestPermissions(requireActivity(),
+            (arrayOf(android.Manifest.permission.READ_MEDIA_IMAGES)), 1)
     }
 
     private fun saveToGallery(bitmap: Bitmap) {

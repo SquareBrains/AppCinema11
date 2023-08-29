@@ -3,6 +3,7 @@ package com.mikerusetsky.appcinema.di
 import com.mikerusetsky.appcinema.di.modules.DatabaseModule
 import com.mikerusetsky.appcinema.di.modules.DomainModule
 import com.mikerusetsky.appcinema.di.modules.RemoteModule
+import com.mikerusetsky.appcinema.viewmodel.FavoriteFragmentViewModel
 import com.mikerusetsky.appcinema.viewmodel.HomeFragmentViewModel
 import com.mikerusetsky.appcinema.viewmodel.SettingsFragmentViewModel
 import dagger.Component
@@ -22,4 +23,6 @@ interface AppComponent {
     fun inject(homeFragmentViewModel: HomeFragmentViewModel)
     //метод для того, чтобы появилась возможность внедрять зависимости в SettingsFragmentViewModel
     fun inject(settingsFragmentViewModel: SettingsFragmentViewModel)
+    //заглушка
+    fun inject(favoriteFragViewModel: FavoriteFragmentViewModel)
 }
