@@ -92,12 +92,17 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.5.1'
 
     //Room
-    implementation "androidx.room:room-runtime:2.5.2"
-    kapt "androidx.room:room-compiler:2.5.2"
-    implementation "androidx.room:room-ktx:2.5.2"
+    def room_version = "2.3.0-beta02"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-rxjava3:2.3.0-beta02"
+    kapt "androidx.room:room-compiler:$room_version"
 
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+
+    //RxJava
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.10'
 
 }

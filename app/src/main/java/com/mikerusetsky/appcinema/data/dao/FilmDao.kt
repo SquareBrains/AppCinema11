@@ -1,5 +1,6 @@
 package com.mikerusetsky.appcinema.data.dao
 
+import android.database.Observable
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
@@ -13,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 interface FilmDao {
     //Запрос на всю таблицу
     @Query("SELECT * FROM cached_films")
-    fun getCachedFilms(): Flow<List<Film>>
+    fun getCachedFilms(): Observable<List<Film>>
 
 
     //Кладём списком в БД, в случае конфликта перезаписываем

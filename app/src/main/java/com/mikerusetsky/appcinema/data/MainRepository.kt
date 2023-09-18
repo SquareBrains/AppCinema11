@@ -2,6 +2,7 @@ package com.mikerusetsky.appcinema.data
 
 import android.content.ContentValues
 import android.database.Cursor
+import android.database.Observable
 import androidx.lifecycle.LiveData
 import com.mikerusetsky.appcinema.R
 import com.mikerusetsky.appcinema.data.dao.FilmDao
@@ -19,5 +20,5 @@ class MainRepository (private val filmDao: FilmDao) {
         }
     }
 
-    fun getAllFromDB(): Flow<List<Film>> = filmDao.getCachedFilms()
+    fun getAllFromDB(): Observable<List<Film>> = filmDao.getCachedFilms()
 }
