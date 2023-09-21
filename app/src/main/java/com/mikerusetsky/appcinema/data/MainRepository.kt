@@ -20,5 +20,5 @@ class MainRepository (private val filmDao: FilmDao) {
         }
     }
 
-    fun getAllFromDB(): Observable<List<Film>> = filmDao.getCachedFilms()
+    fun getAllFromDB(): io.reactivex.rxjava3.core.Observable<List<Film>> = filmDao.getCachedFilms()
 }

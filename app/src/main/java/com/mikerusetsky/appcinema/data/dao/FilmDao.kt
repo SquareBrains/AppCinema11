@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 interface FilmDao {
     //Запрос на всю таблицу
     @Query("SELECT * FROM cached_films")
-    fun getCachedFilms(): Observable<List<Film>>
+    fun getCachedFilms(): io.reactivex.rxjava3.core.Observable<List<Film>>
 
 
     //Кладём списком в БД, в случае конфликта перезаписываем

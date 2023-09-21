@@ -1,25 +1,16 @@
 package com.mikerusetsky.appcinema.domain
 
 import android.database.Observable
-import android.telecom.Call
-import androidx.lifecycle.LiveData
+
 import com.mikerusetsky.appcinema.MyApi
 import com.mikerusetsky.appcinema.TmdbApi
 import com.mikerusetsky.appcinema.data.Entity.TmdbResultsDto
 import com.mikerusetsky.appcinema.data.MainRepository
 import com.mikerusetsky.appcinema.data.PreferenceProvider
 import com.mikerusetsky.appcinema.utils.Converter
-import com.mikerusetsky.appcinema.viewmodel.HomeFragmentViewModel
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
-import okhttp3.Callback
-import okhttp3.Response
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {
     var progressBarState: BehaviorSubject<Boolean> = BehaviorSubject.create()
@@ -57,5 +48,5 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
     }
     //Метод для получения настроек
     fun getDefaultCategoryFromPreferences() = preferences.getDefaultCategory()
-    fun getFilmsFromDB(): Observable<List<Film>> = repo.getAllFromDB()
+    fun getFilmsFromDB(): io.reactivex.rxjava3.core.Observable<List<Film>> = repo.getAllFromDB()
 }

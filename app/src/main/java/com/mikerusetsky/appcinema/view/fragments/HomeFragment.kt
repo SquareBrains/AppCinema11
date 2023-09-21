@@ -12,11 +12,13 @@ import com.mikerusetsky.appcinema.databinding.FragmentHomeBinding
 import com.mikerusetsky.appcinema.domain.Film
 import com.mikerusetsky.appcinema.utils.AnimationHelper
 import com.mikerusetsky.appcinema.utils.AutoDisposable
+import com.mikerusetsky.appcinema.utils.addTo
 import com.mikerusetsky.appcinema.view.rv_adapters.FilmListRecyclerAdapter
 import com.mikerusetsky.appcinema.view.MainActivity
 import com.mikerusetsky.appcinema.view.rv_adapters.TopSpacingItemDecoration
 import com.mikerusetsky.appcinema.viewmodel.HomeFragmentViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.*
 import java.util.Locale
@@ -81,7 +83,7 @@ class HomeFragment : Fragment() {
                 filmsAdapter.addItems(list)
                 filmsDataBase = list
             }
-            .addTo(autoDisposable)
+           .addTo(autoDisposable)
         viewModel.showProgressBar
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
