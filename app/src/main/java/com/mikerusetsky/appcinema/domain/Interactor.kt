@@ -21,7 +21,6 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
     fun getFilmsFromApi(page: Int) {
         //Показываем ProgressBar
         progressBarState.onNext(true)
-
         //Метод getDefaultCategoryFromPreferences() будет получать при каждом запросе нужный нам список фильмов
         retrofitService.getFilms(getDefaultCategoryFromPreferences(), MyApi.API, "ru-RU", page).enqueue(object : retrofit2.Callback<TmdbResultsDto> {
             override fun onResponse(call: retrofit2.Call<TmdbResultsDto>, response: retrofit2.Response<TmdbResultsDto>) {
@@ -42,6 +41,13 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
             }
         })
     }
+
+
+    fun getSearchResultFromApi(search: String): io.reactivex.rxjava3.core.Observable<List<Film>> = retrofitService.getFilmFromSearch(MyApi.API, "ru-RU", search, 1)
+        .map {
+            Converter.convertApiListToDtoList(it.tmdbFilms)
+        }
+
     //Метод для сохранения настроек
     fun saveDefaultCategoryToPreferences(category: String) {
         preferences.saveDefaultCategory(category)
