@@ -4,9 +4,9 @@ package com.mikerusetsky.appcinema.view.rv_viewholders
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.mikerusetsky.appcinema.ApiConstants
 import com.mikerusetsky.appcinema.databinding.FilmItemBinding
 import com.mikerusetsky.appcinema.domain.Film
+import com.mikerusetsky.remote_module.entity.ApiConstants
 
 //В конструктор класс передается layout, который мы создали(film_item.xml)
 class FilmViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -2,10 +2,10 @@ package com.mikerusetsky.appcinema.di.modules
 
 
 import android.content.Context
-import com.mikerusetsky.appcinema.TmdbApi
 import com.mikerusetsky.appcinema.data.MainRepository
 import com.mikerusetsky.appcinema.data.PreferenceProvider
 import com.mikerusetsky.appcinema.domain.Interactor
+import com.mikerusetsky.remote_module.TmdbApi
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

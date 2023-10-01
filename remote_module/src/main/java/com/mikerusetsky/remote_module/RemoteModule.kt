@@ -1,8 +1,8 @@
-package com.mikerusetsky.appcinema.di.modules
+package com.mikerusetsky.remote_module
 
-import com.mikerusetsky.appcinema.ApiConstants
+
 import com.mikerusetsky.appcinema.BuildConfig
-import com.mikerusetsky.appcinema.TmdbApi
+import com.mikerusetsky.remote_module.entity.ApiConstants
 import dagger.Module
 import dagger.Provides
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
