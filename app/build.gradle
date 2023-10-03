@@ -76,19 +76,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
 
-    //retrofit
-    implementation "com.squareup.retrofit2:retrofit:2.9.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.6.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:3.12.6"
-
     //pagination
     implementation "androidx.paging:paging-runtime:3.1.0"
 
     implementation 'com.airbnb.android:lottie:6.1.0'
 
     //Dagger
-    implementation 'com.google.dagger:dagger:2.47'
-    kapt 'com.google.dagger:dagger-compiler:2.47'
+    implementation dagger
+    kapt daggerCompiler
 
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.5.1'

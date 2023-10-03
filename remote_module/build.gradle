@@ -46,8 +46,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //Dagger
-    implementation 'com.google.dagger:dagger:2.47'
-    kapt 'com.google.dagger:dagger-compiler:2.47'
+    implementation dagger
+    kapt daggerCompiler
 
 //Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
