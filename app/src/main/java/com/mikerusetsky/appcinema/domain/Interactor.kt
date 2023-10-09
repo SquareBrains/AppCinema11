@@ -4,10 +4,12 @@ import com.mikerusetsky.appcinema.MyApi
 import com.mikerusetsky.appcinema.data.MainRepository
 import com.mikerusetsky.appcinema.data.PreferenceProvider
 import com.mikerusetsky.appcinema.utils.Converter
+import com.mikerusetsky.appcinema.domain.Film
 import com.mikerusetsky.remote_module.TmdbApi
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
-import io.reactivex.rxjava3.kotlin.subscribeBy
 
 class Interactor(private val repo: MainRepository, private val retrofitService: TmdbApi, private val preferences: PreferenceProvider) {
     var progressBarState: BehaviorSubject<Boolean> = BehaviorSubject.create()

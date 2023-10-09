@@ -14,6 +14,6 @@ class FavoriteFragmentViewModel: ViewModel() {
     lateinit var interactor: Interactor
 
     init {
-        App.instance.dagger.inject(this)
+       // App.instance.dagger.inject(this)
     }
 }

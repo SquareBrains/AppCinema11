@@ -86,7 +86,7 @@ class DetailsFragment : Fragment() {
         binding.detailsToolbar.title = film.title
         //Устанавливаем картинку
         Glide.with(this)
-            .load(ApiConstants.IMAGES_URL + "w780" + film.poster)
+            .load("https://image.tmdb.org/t/p/" + "w780" + film.poster)
             .centerCrop()
             .into(binding.detailsPoster)
         //Устанавливаем описание
@@ -111,7 +111,7 @@ class DetailsFragment : Fragment() {
             binding.progressBar.isVisible = true
             //Создаем через async так как нам нужен результат от работы, то есть Bitmap
             val job = scope.async {
-                viewModel.loadWallpaper(ApiConstants.IMAGES_URL + "original" + film.poster)
+                viewModel.loadWallpaper("https://image.tmdb.org/t/p/" + "original" + film.poster)
             }
             //Сохраняем в галерею, как только файл загрузится
             saveToGallery(job.await())
